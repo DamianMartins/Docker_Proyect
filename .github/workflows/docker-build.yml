@@ -19,7 +19,7 @@ jobs:
     - name: Build and tag Docker image
       run: docker build -t damiankaio/my-docker-image:latest .
       working-directory: ./my-app
-      # ^ Cambia al directorio que contiene tu Dockerfile
+      
 
     - name: Push Docker image to Docker Hub
       run: docker push damiankaio/my-docker-image:latest
