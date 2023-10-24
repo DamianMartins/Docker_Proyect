@@ -1,0 +1,9 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/usr/share/nginx/html
+      - ./htpasswd:/etc/nginx/htpasswd  # Esto copiará el archivo .htpasswd al contenedor
