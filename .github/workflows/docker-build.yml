@@ -3,7 +3,7 @@ name: Docker Build and Push
 on:
   push:
     branches:
-      - main
+      - Damian_to_List
 
 jobs:
   build-and-push:
