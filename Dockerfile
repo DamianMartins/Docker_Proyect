@@ -6,7 +6,7 @@ COPY ./app/script.js /usr/share/nginx/html/script.js
 
 COPY ./app/nginx.conf /etc/nginx/conf.d/default.conf
 
-COPY ./htpasswd /etc/nginx/htpasswd
+COPY ./.htpasswd /etc/nginx/.htpasswd
 
 EXPOSE 80
 
