@@ -1,0 +1,34 @@
+# Nombre del flujo de trabajo
+name: Docker Build and Push
+
+# Definir cuándo se ejecutará el flujo de trabajo
+on:
+  push:
+    branches:
+      - Damian_to_List
+
+# Trabajo principal del flujo de trabajo
+jobs:
+  build-and-push:
+    # Sistema operativo para ejecutar el trabajo
+    runs-on: ubuntu-latest
+
+    steps:
+    # Paso 1: Clonar el código del repositorio
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    # Paso 2: Iniciar sesión en Docker Hub
+    - name: Login to Docker Hub
+      run: docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    # Paso 3: Construir y etiquetar la imagen de Docker
+    - name: Build and tag Docker image
+      run: docker build -t damiankaio/web:latest .
+      working-directory: ./
+
+    # Paso 4: Subir la imagen de Docker a Docker Hub
+    - name: Push Docker image to Docker Hub
+      run: docker push damiankaio/web:latest
+
+
